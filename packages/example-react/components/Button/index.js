@@ -15,6 +15,7 @@ function getBorderColor(variant) {
   }
 }
 
+// const StyledButtonExample = styled.button`
 const StyledButtonExample = styled("Button")`
   font-size: 16px;
   font-weight: bold;
