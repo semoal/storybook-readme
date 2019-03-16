@@ -15,37 +15,36 @@ function getBorderColor(variant) {
   }
 }
 
-const Button = styled(({ label, ...props }) => (
-  <button {...props}>{label}</button>
-))`
+const StyledButtonExample = styled("Button")`
   font-size: 16px;
   font-weight: bold;
-
   cursor: pointer;
   padding: 8px 12px;
   outline: none;
-
   border-width: 2px;
   border-style: solid;
   border-color: ${props => getBorderColor(props.variant)};
-
   border-radius: 8px;
   color: rgba(0, 0, 0, 0.96);
 
   :hover {
     background: yellow;
     border-width: 3px;
-
     padding: 7px 11px;
-  }
+  };
 
   :active {
     background: yellow;
     border-width: 4px;
-
     padding: 6px 10px;
-  }
-`;
+  };
+`
+
+const Button = ({ label, ...props }) => (
+  <StyledButtonExample {...props}>
+    {label}
+  </StyledButtonExample>
+);
 
 Button.propTypes = {
   label: PropTypes.string.isRequired,
@@ -53,4 +52,7 @@ Button.propTypes = {
   variant: PropTypes.oneOf(['success', 'warning', 'alert']),
 };
 
+// Not working:
 export default withTheme(Button);
+// Working:
+// export default Button;
